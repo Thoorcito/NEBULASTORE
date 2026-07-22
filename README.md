@@ -54,6 +54,16 @@ Custom domain exceptions live in the `exception` package: `OutOfStockException`,
 - **Dependency inversion**: `OrderService` depends on the `OrderNotifier` interface, not a concrete implementation, allowing the real notifier to be swapped for a mock in tests.
 - **Business exceptions**: failures throw named domain exceptions instead of generic errors.
 
+## Development approach
+
+This project was built using **Test-Driven Development (TDD)**, following the Red-Green-Refactor cycle:
+
+1. **Red** — write a failing test that defines the expected behavior before any implementation exists.
+2. **Green** — write the minimum production code needed to make the test pass.
+3. **Refactor** — clean up the code while keeping all tests green.
+
+Each domain component was created test-first: the test was written and run to confirm it failed, then the class was implemented to satisfy it.
+
 ## Testing
 
 The test suite covers four test styles:
