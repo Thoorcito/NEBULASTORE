@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-@DisplayName("OrderCart - carrito de pedidos")
+@DisplayName("OrderCart carrito de pedidos")
 class OrderCartTest {
     @Test
     @DisplayName("Deberia iniciar con total 0.0 y lista de items vacia")
