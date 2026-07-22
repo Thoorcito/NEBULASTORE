@@ -1,0 +1,16 @@
+# Maven
+target/
+
+# VSCode
+.vscode/
+
+# IntelliJ (por si acaso)
+.idea/
+*.iml
+
+# Compiled class files
+*.class
+
+# OS
+Thumbs.db
+.DS_Store
