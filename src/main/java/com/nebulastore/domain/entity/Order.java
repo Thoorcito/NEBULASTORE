@@ -1,14 +1,14 @@
-package com.nebulastore.domain;
+package com.nebulastore.domain.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderCart {
+public class Order {
     private double total;
     private List<String> items;
     
     // constructor vacio
-    public OrderCart() {
+    public Order() {
         this.total= 0.0;
         this.items= new ArrayList<>();
     }

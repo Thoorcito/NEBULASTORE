@@ -1,10 +1,12 @@
-package com.nebulastore.domain;
+package com.nebulastore.application.usecase;
 
-public class OrderService {
+import com.nebulastore.domain.OrderNotifier;
+
+public class NewOrderUseCase {
 
     private final OrderNotifier notifier;
 
-    public OrderService(OrderNotifier notifier) {
+    public NewOrderUseCase(OrderNotifier notifier) {
         this.notifier = notifier;
     }
 

@@ -1,7 +1,9 @@
-package com.nebulastore.domain;
+package com.nebulastore.application.usecase;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.nebulastore.domain.OrderNotifier;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -10,15 +12,15 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 
-@DisplayName("OrderService procesamiento de pedidos")
-class OrderServiceTest {
+@DisplayName("NewOrderUseCase  procesamiento de pedidos")
+class NewOrderUseCaseTest {
 
     @Test
     @DisplayName("Deberia notificar una vez cuando el pedido es valido")
     void shouldNotifyWhenOrderIsValid() {
         // Arrange: creamos un notifier falso (mock)
         OrderNotifier notifier = mock(OrderNotifier.class);
-        OrderService service = new OrderService(notifier);
+        NewOrderUseCase service = new NewOrderUseCase(notifier);
 
         // Act
         service.processOrder("ORD-001", "+56912345678");
@@ -33,7 +35,7 @@ class OrderServiceTest {
     void shouldThrowWhenOrderIdIsNull() {
         // Arrange
         OrderNotifier notifier = mock(OrderNotifier.class);
-        OrderService service = new OrderService(notifier);
+        NewOrderUseCase service = new NewOrderUseCase(notifier);
 
         // Act & Assert
         assertThrows(IllegalArgumentException.class,
@@ -48,7 +50,7 @@ class OrderServiceTest {
     void shouldThrowWhenOrderIdIsEmpty() {
         // Arrange
         OrderNotifier notifier = mock(OrderNotifier.class);
-        OrderService service = new OrderService(notifier);
+        NewOrderUseCase service = new NewOrderUseCase(notifier);
 
         // Act & Assert
         assertThrows(IllegalArgumentException.class,

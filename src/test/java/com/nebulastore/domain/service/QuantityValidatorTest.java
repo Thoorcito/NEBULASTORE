@@ -1,6 +1,8 @@
-package com.nebulastore.domain;
+package com.nebulastore.domain.service;
 
 import com.nebulastore.domain.exception.InvalidQuantityException;
+
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

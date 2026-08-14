@@ -1,4 +1,4 @@
-package com.nebulastore.domain;
+package com.nebulastore.domain.service;
 
 import com.nebulastore.domain.exception.OutOfStockException;
 
