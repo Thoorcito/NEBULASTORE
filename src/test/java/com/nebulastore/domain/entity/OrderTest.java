@@ -1,5 +1,7 @@
 package com.nebulastore.domain.entity;
 
+import com.nebulastore.domain.valueobject.OrderItem;
+import com.nebulastore.domain.valueobject.Quantity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -43,21 +45,22 @@ class OrderTest {
     @DisplayName("Deberia agregar un item a la lista al usar addItem")
     void shouldAddItemToList() {
         Order order = new Order("ORD-001");
+        OrderItem item = new OrderItem("Filamento PLA 1kg", new Quantity(1), 15990.0);
 
-        order.addItem("Filamento PLA 1kg", 15990.0);
+        order.addItem(item);
 
         assertEquals(1, order.getItems().size());
-        assertTrue(order.getItems().contains("Filamento PLA 1kg"));
+        assertTrue(order.getItems().contains(item));
     }
 
     @Test
-    @DisplayName("Deberia sumar el precio al total al agregar items")
-    void shouldAddPriceToTotal() {
+    @DisplayName("Deberia sumar precio por cantidad al total al agregar items")
+    void shouldAddPriceTimesQuantityToTotal() {
         Order order = new Order("ORD-001");
 
-        order.addItem("Filamento PLA 1kg", 15990.0);
-        order.addItem("Boquilla 0.4mm", 3990.0);
+        order.addItem(new OrderItem("Filamento PLA 1kg", new Quantity(2), 15990.0));
+        order.addItem(new OrderItem("Boquilla 0.4mm", new Quantity(1), 3990.0));
 
-        assertEquals(19980.0, order.getTotal());
+        assertEquals(35970.0, order.getTotal());
     }
 }

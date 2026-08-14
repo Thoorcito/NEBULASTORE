@@ -1,5 +1,6 @@
 package com.nebulastore.domain.entity;
 
+import com.nebulastore.domain.valueobject.OrderItem;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class Order {
 
     private final String id;
     private double total;
-    private List<String> items;
+    private List<OrderItem> items;
 
     public Order(String id) {
         if (id == null || id.isBlank()) {
@@ -18,9 +19,9 @@ public class Order {
         this.items = new ArrayList<>();
     }
 
-    public void addItem(String item, double price) {
+    public void addItem(OrderItem item) {
         this.items.add(item);
-        this.total += price;
+        this.total += item.unitPrice() * item.quantity().value();
     }
 
     public String getId() {
@@ -31,7 +32,7 @@ public class Order {
         return total;
     }
 
-    public List<String> getItems() {
+    public List<OrderItem> getItems() {
         return items;
     }
 }
